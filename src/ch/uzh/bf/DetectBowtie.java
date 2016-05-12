@@ -199,7 +199,7 @@ public class DetectBowtie {
 		}
 
 		// TT
-		System.out.println("# Bowtie analysis: T&T and OCC");
+		System.out.println("# Bowtie analysis: TT and OCC");
 		for (int test : all) {
 			if (lscc.contains(test) || in.contains(test) || out.contains(test)) {
 				tt.remove(test);
@@ -218,7 +218,7 @@ public class DetectBowtie {
 
 		System.out.println("# Bowtie analysis: stats");
 
-		System.out.println("T&T nodes " + tt.size());
+		System.out.println("TT nodes " + tt.size());
 		int lcc = tt.size() + in.size() + lscc.size() + out.size();
 		System.out.println("LCC nodes " + lcc);
 		System.out.println("OCC nodes " + occ.size());
@@ -295,7 +295,7 @@ public class DetectBowtie {
 		System.out.println("IN val " + valIn);
 		System.out.println("SCC val " + valScc);
 		System.out.println("OUT val " + valOut);
-		System.out.println("T&T val " + valTt);
+		System.out.println("TT val " + valTt);
 		System.out.println("Total val " + (valIn+valScc+valOut+valTt));
 	}
 

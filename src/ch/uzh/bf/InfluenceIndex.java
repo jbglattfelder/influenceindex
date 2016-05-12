@@ -109,60 +109,7 @@ public class InfluenceIndex {
 	// Recursive depth first search (DFS) computing the Influence Index contributions from
 	// the value of all downstream nodes
 	private double crawlDownstream(Relationship relationship, double indirectWeight, double influenceIndex) {
-		// Initialize
-		Node successor = relationship.getEndNode();
-
-		// ### Cumulative
-		if (cfg.cumulativeInfluenceIndex) {
-			// Found other tagged (sink) node, go back
-			if (successor.getProperty(StaticConfig.nodeTag).equals(StaticConfig.NodeTag.YES.toString())) {
-				return influenceIndex;
-			}
-		}
-		// ###
-
-		// Been here, go back up
-		if (successor.getProperty(StaticConfig.nodeSwitch).equals(StaticConfig.NodeSwitch.ON.toString())) {
-			return influenceIndex;
-		}
-
-		// Get node value that will flow up through trail to sink as influence
-		double initValue = (double) (successor.getProperty(StaticConfig.nodeValue));
-
-		// Compute indirect weight
-		double w = (double) relationship.getProperty(StaticConfig.weight);
-		double newWeight = w * indirectWeight;
-
-		// Compute Influence Index 
-		double currentInfluenceIndex = newWeight * initValue;
-
-		// Update Influence Index and activate
-		double newInfluenceIndex = currentInfluenceIndex + influenceIndex;
-		successor.setProperty(StaticConfig.nodeSwitch, StaticConfig.NodeSwitch.ON.toString());
-
-		// Continue recursively along trails (DFS): Get successors at next level
-		Iterable<Relationship> iterableRel = successor.getRelationships(cfg.out);
-
-		// Reached leaf node, go back up
-		if (!iterableRel.iterator().hasNext()) {
-			// Deactivate if active
-			if (successor.getProperty(StaticConfig.nodeSwitch).equals(StaticConfig.NodeSwitch.ON.toString())) {
-				successor.setProperty(StaticConfig.nodeSwitch, StaticConfig.NodeSwitch.OFF.toString());
-			}
-			return newInfluenceIndex;
-		}
-
-		// Iterate through relationships
-		for (Relationship newRelationship : iterableRel) {
-			// Retrieve Influence Index from recursive call
-			newInfluenceIndex = crawlDownstream(newRelationship, newWeight, newInfluenceIndex);
-		}
-		// Deactivate if active
-		if (successor.getProperty(StaticConfig.nodeSwitch).equals(StaticConfig.NodeSwitch.ON.toString())) {
-			successor.setProperty(StaticConfig.nodeSwitch, StaticConfig.NodeSwitch.OFF.toString());
-		}
-		// No more relationships, go back up
-		return newInfluenceIndex;
+		return 0.0;
 	}
 	
 	// Analytical computation
