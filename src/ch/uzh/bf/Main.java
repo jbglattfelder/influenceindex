@@ -77,7 +77,8 @@ public class Main {
 
 		public DynamicConfig () {
 			// Neo4j infrastructure
-			dbPath = "/home/jbg/sw/neo4j-community/data/graph.db";
+			// ### Set this to where you want the database to be located at
+			dbPath = "/home/username/sw/neo4j-community/data/graph.db";
 
 			// Relations
 			out = Direction.OUTGOING;
