@@ -12,7 +12,9 @@
  * James B. Glattfelder
  * james.glattfelder@uzh.ch
  * 
- * 2016
+ * 2017
+ *
+ * Neo4j Version 2.2.5
  */
 
 package ch.uzh.bf;
