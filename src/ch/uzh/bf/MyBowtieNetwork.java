@@ -2,6 +2,7 @@ package ch.uzh.bf;
 
 import java.util.HashMap;
 
+// Neo4j Version 2.2.5
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
