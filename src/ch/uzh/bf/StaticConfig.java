@@ -1,5 +1,6 @@
 package ch.uzh.bf;
 
+// Neo4j Version 2.2.5
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.RelationshipType;
